@@ -2,7 +2,7 @@ function displayTemperature(response) {
   let temperatureElement = document.querySelector("#temperature");
   let cityElement = document.querySelector("#city");
   let placeholder = document.querySelector(`#city-input`);
-  let activities = document.querySelector(`#activities`);
+
   placeholder.value = ``;
   celsiusTemperature = response.data.main.temp;
   let fahrenheitDegrees = (celsiusTemperature * 9) / 5 + 32;
@@ -12,7 +12,9 @@ function displayTemperature(response) {
     Math.round(fahrenheitDegrees) +
     ` °F`;
   cityElement.innerHTML = response.data.name;
-  activities.innerHTML = `<h3>Activities</h3>
+  function displayActivities(temperature) {
+    let activities = document.querySelector(`#activities`);
+    activities.innerHTML = `<h3>Activities</h3>
         <div class="activities-list row m-0">
           <button class="col">Solo</button><button class="col">Team</button
           ><button class="col">All</button>
@@ -25,6 +27,8 @@ function displayTemperature(response) {
             <li></li>
           </ul>
         </div>`;
+  }
+  displayActivities(celsiusTemperature);
 }
 
 function search(city) {

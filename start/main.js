@@ -2,10 +2,29 @@ function displayTemperature(response) {
   let temperatureElement = document.querySelector("#temperature");
   let cityElement = document.querySelector("#city");
   let placeholder = document.querySelector(`#city-input`);
+  let activities = document.querySelector(`#activities`);
   placeholder.value = ``;
   celsiusTemperature = response.data.main.temp;
-  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+  let fahrenheitDegrees = (celsiusTemperature * 9) / 5 + 32;
+  temperatureElement.innerHTML =
+    Math.round(celsiusTemperature) +
+    ` °C/ ` +
+    Math.round(fahrenheitDegrees) +
+    ` °F`;
   cityElement.innerHTML = response.data.name;
+  activities.innerHTML = `<h3>Activities</h3>
+        <div class="activities-list row m-0">
+          <button class="col">Solo</button><button class="col">Team</button
+          ><button class="col">All</button>
+        </div>
+        <div>
+          <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+        </div>`;
 }
 
 function search(city) {
@@ -28,5 +47,3 @@ function handleSubmit(event) {
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
-
-search("New York");

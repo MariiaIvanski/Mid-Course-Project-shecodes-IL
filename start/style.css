@@ -8,7 +8,13 @@ body {
   width: 100px;
 }
 
-.search-engine {
+.container {
+  background: rgba(255, 255, 255, 0.517);
+  padding: 3px;
+}
+.search-engine h3 {
   color: #fff;
   background: #000;
+  padding: 5px;
+  margin: 1px;
 }

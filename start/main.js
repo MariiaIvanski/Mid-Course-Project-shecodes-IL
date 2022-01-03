@@ -21,10 +21,10 @@ function displayTemperature(response) {
         </div>
         <div>
           <ul>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
+            <li>swimming</li>
+            <li>rowing</li>
+            <li>running</li>
+            <li>jogging</li>
           </ul>
         </div>`;
   }

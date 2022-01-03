@@ -14,7 +14,7 @@
     <title>Sport weather forecast</title>
   </head>
   <body>
-    <header class="d-flex row">
+    <header class="row d-flex justify-content-center">
       <div class="mx-auto col-auto">
         <ul class="nav">
           <img src="img/hpluslogo.svg" class="main-logo" alt="logo" />
@@ -31,28 +31,32 @@
             <a class="nav-link" href="#">People</a>
           </li>
         </ul>
-
-        <div class="search-engine container col-auto">
-          <h3>Activity forecast</h3>
-          <form id="search-form" class="d-flex flex-row bd-highlight">
-            <div class="col-6">
-              <input
-                type="search"
-                class="form-control"
-                id="city-input"
-                placeholder="Type a city"
-                autocomplete="off"
-              />
-            </div>
-            <div class="col-auto">
-              <input
-                type="submit"
-                value="Search"
-                class="btn btn-primary mb-3"
-              />
-            </div>
-          </form>
+      </div>
+      <div class="search-engine container col-auto">
+        <h3>Activity forecast</h3>
+        <form id="search-form" class="d-flex flex-row bd-highlight">
+          <div class="col-6">
+            <input
+              type="search"
+              class="form-control"
+              id="city-input"
+              placeholder="Type a city"
+              autocomplete="off"
+            />
+          </div>
+          <div class="col-auto">
+            <input type="submit" value="Search" class="btn btn-primary mb-3" />
+          </div>
+        </form>
+        <h1 id="city"></h1>
+        <div class="d-flex weather-temperature">
+          <img src="img/Weather.svg" alt="sunny" id="icon" class="float-left" />
+          <div class="float-left current-degrees">
+            <strong id="temperature"></strong><span class="units"> °C</span>
+          </div>
         </div>
+        <h3>Activities</h3>
+        <button>Solo</button><button>Team</button><button>All</button>
       </div>
     </header>
 

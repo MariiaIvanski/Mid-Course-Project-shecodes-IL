@@ -2,9 +2,9 @@ function displayTemperature(response) {
   let temperatureElement = document.querySelector("#temperature");
   let cityElement = document.querySelector("#city");
   let placeholder = document.querySelector(`#city-input`);
-
   placeholder.value = ``;
   celsiusTemperature = response.data.main.temp;
+
   let fahrenheitDegrees = (celsiusTemperature * 9) / 5 + 32;
   temperatureElement.innerHTML =
     Math.round(celsiusTemperature) +

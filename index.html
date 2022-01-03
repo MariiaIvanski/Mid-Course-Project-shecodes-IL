@@ -14,21 +14,48 @@
     <title>Sport weather forecast</title>
   </head>
   <body>
-    <img src="img/hpluslogo.svg" class="main-logo" alt="logo" />
-    <ul class="nav">
-      <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="#">Home</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">History</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Guarantee</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">People</a>
-      </li>
-    </ul>
+    <header class="d-flex row">
+      <div class="mx-auto col-auto">
+        <ul class="nav">
+          <img src="img/hpluslogo.svg" class="main-logo" alt="logo" />
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">History</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Guarantee</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">People</a>
+          </li>
+        </ul>
+
+        <div class="search-engine container col-auto">
+          <h3>Activity forecast</h3>
+          <form id="search-form" class="d-flex flex-row bd-highlight">
+            <div class="col-6">
+              <input
+                type="search"
+                class="form-control"
+                id="city-input"
+                placeholder="Type a city"
+                autocomplete="off"
+              />
+            </div>
+            <div class="col-auto">
+              <input
+                type="submit"
+                value="Search"
+                class="btn btn-primary mb-3"
+              />
+            </div>
+          </form>
+        </div>
+      </div>
+    </header>
+
     <script src="start/main.js"></script>
   </body>
 </html>

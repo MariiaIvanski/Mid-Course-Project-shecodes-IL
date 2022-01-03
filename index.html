@@ -14,28 +14,33 @@
     <title>Sport weather forecast</title>
   </head>
   <body>
-    <header class="row d-flex justify-content-center">
-      <div class="mx-auto col-auto">
-        <ul class="nav">
-          <img src="img/hpluslogo.svg" class="main-logo" alt="logo" />
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+    <div class="container row d-flex justify-content-center mx-auto">
+      <img
+        src="img/hpluslogo.svg"
+        class="img-fluid"
+        id="main-logo"
+        alt="logo"
+      />
+      <nav class="d-flex justify-content-between col-auto">
+        <ul>
+          <li>
+            <a href="#">home</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">History</a>
+          <li>
+            <a href="#">history</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Guarantee</a>
+          <li>
+            <a href="#">guarantee</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">People</a>
+          <li>
+            <a href="#">people</a>
           </li>
         </ul>
-      </div>
-      <div class="search-engine container col-auto">
+      </nav>
+      <div class="search-engine col-auto p-0">
         <h3>Activity forecast</h3>
-        <form id="search-form" class="d-flex flex-row bd-highlight">
-          <div class="col-6">
+        <form id="search-form" class="row m-1">
+          <div class="col-auto">
             <input
               type="search"
               class="form-control"
@@ -45,20 +50,30 @@
             />
           </div>
           <div class="col-auto">
-            <input type="submit" value="Search" class="btn btn-primary mb-3" />
+            <input type="submit" value="Search" class="btn btn-outline-dark" />
           </div>
         </form>
         <h1 id="city"></h1>
         <div class="d-flex weather-temperature">
-          <img src="img/Weather.svg" alt="sunny" id="icon" class="float-left" />
           <div class="float-left current-degrees">
             <strong id="temperature"></strong><span class="units"> °C</span>
           </div>
         </div>
         <h3>Activities</h3>
-        <button>Solo</button><button>Team</button><button>All</button>
+        <div class="activities-list row m-0">
+          <button class="col">Solo</button><button class="col">Team</button
+          ><button class="col">All</button>
+        </div>
+        <div>
+          <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+        </div>
       </div>
-    </header>
+    </div>
 
     <script src="start/main.js"></script>
   </body>

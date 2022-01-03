@@ -1,20 +1,65 @@
 body {
   background: url("/img/running.jpg") no-repeat center top fixed;
-
   background-size: cover;
 }
 
-.main-logo {
-  width: 100px;
+.container {
+  margin: 0 auto;
+  max-width: 850px;
 }
 
-.container {
-  background: rgba(255, 255, 255, 0.517);
-  padding: 3px 0;
+#main-logo {
+  width: 200px;
+  height: 200px;
+
+  padding: 0;
+}
+
+nav {
+  padding: 20px 0;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  display: inline;
+  list-style: none;
+  line-height: 40px;
+  padding: 10px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  transition: all 100ms ease-in-out;
+}
+
+nav a:hover {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.search-engine {
+  background: rgba(255, 255, 255, 0.5);
+  padding: 0;
 }
 .search-engine h3 {
-  color: #fff;
+  color: #bfc22a;
+  text-align: center;
   background: #000;
+  margin: 0;
   padding: 5px;
-  margin: 1px 0;
+}
+
+button {
+  background: rgba(255, 255, 255, 0.8);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+button:hover {
+  background-color: #bfc22a;
 }

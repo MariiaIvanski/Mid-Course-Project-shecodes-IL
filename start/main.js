@@ -12,23 +12,60 @@ function displayTemperature(response) {
     Math.round(fahrenheitDegrees) +
     ` °F`;
   cityElement.innerHTML = response.data.name;
-  function displayActivities(temperature) {
-    let activities = document.querySelector(`#activities`);
-    activities.innerHTML = `<h3>Activities</h3>
+
+  function displayActivities(response) {
+    let activitiesСhoice = document.querySelector(`#activities`);
+    const activities = {
+      teamIn: ["basketball", "hockey", "volleyball"],
+      teamOutWarm: [
+        "softball/baseball",
+        "football/soccer",
+        "American football",
+        "rowing",
+        "tennis",
+        "volleyball",
+        "ultimate frisbee",
+        "rugby",
+      ],
+      teamOutCold: ["hockey"],
+      soloIn: ["rock climbing", "swimming", "ice skating"],
+      soloOutWarm: ["rowing", "running", "hiking", "cycling", "rock climbing"],
+      soloOutCold: [
+        "snowshoeing",
+        "downhill skiing",
+        "cross-country skiing",
+        "ice skating",
+      ],
+    };
+    let state = {};
+    let category = "all";
+    activitiesСhoice.innerHTML = `<h3>Activities</h3>
         <div class="activities-list row m-0">
           <button class="col">Solo</button><button class="col">Team</button
           ><button class="col">All</button>
         </div>
         <div>
           <ul>
-            <li>swimming</li>
-            <li>rowing</li>
-            <li>running</li>
-            <li>jogging</li>
+            <li></li>
           </ul>
         </div>`;
   }
   displayActivities(celsiusTemperature);
+
+  document.querySelector("#forecast-button").addEventListener(
+    "click",
+    function (e) {
+      e.preventDefault();
+      document.querySelector("#location").value = "";
+      updateUIFailure();
+    },
+    false
+  );
+
+  function updateUIFailure() {
+    document.querySelector(".conditions").textContent =
+      "Weather information unavailable";
+  }
 }
 
 function search(city) {

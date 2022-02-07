@@ -4,7 +4,7 @@ function displayActivities() {
   let weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   let activitiesСhoice = document.querySelector(`#activities`);
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-  // Replace "APIKEY" with your own API key; otherwise, your HTTP request will not work
+
   const activities = {
     teamIn: ["basketball", "hockey", "volleyball"],
     teamOutWarm: [

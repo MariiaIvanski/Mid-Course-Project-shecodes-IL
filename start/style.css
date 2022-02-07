@@ -47,6 +47,21 @@ nav a:hover {
   color: rgba(255, 255, 255, 0.5);
 }
 
+nav .hidden {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+nav .results #city,
+nav .results #temperature {
+  display: flex;
+  justify-content: center;
+}
+
 .search-engine {
   background: rgba(255, 255, 255, 0.5);
   padding: 0;

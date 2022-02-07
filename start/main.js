@@ -31,7 +31,8 @@
     "click",
     function (e) {
       e.preventDefault();
-      document.querySelector("#city-input").value = "";
+      const location = document.querySelector(`#location`).value;
+      document.querySelector("#location").value = ``;
 
       fetch(url + location + "&appid=" + apiKey)
         .then(function (response) {

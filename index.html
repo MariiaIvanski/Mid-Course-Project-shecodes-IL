@@ -37,38 +37,48 @@
             <a href="#">people</a>
           </li>
         </ul>
-      </nav>
-      <div class="search-engine col-auto p-0">
-        <h3>Activity forecast</h3>
-        <form id="search-form" class="row m-1">
-          <div class="col-auto">
-            <input
-              type="search"
-              class="form-control"
-              id="city-input"
-              placeholder="Type a city"
-              autocomplete="off"
-            />
-          </div>
-          <div class="col-auto">
-            <input
-              type="submit"
-              value="Search"
-              class="btn btn-outline-dark"
-              id="forecast-button"
-            />
-          </div>
-        </form>
-        <h1 id="city"></h1>
-        <div class="d-flex weather-temperature">
-          <div class="current-degrees mx-auto mb-2">
-            <strong id="temperature"></strong>
-          </div>
-        </div>
-        <div id="activities"></div>
-      </div>
-    </div>
 
+        <div class="search-engine col-auto p-0">
+          <h3>Activity forecast</h3>
+          <div>
+            <form id="search-form" class="row m-1">
+              <label for="location" class="hidden">Location</label>
+              <div class="col-auto">
+                <input
+                  type="search"
+                  class="form-control"
+                  id="city-input"
+                  placeholder="Type a city"
+                  autocomplete="off"
+                />
+              </div>
+              <div class="col-auto">
+                <input
+                  type="submit"
+                  value="Search"
+                  class="btn btn-outline-dark forecast-button"
+                  id="forecast-button"
+                />
+              </div>
+              <div class="conditions"></div>
+            </form>
+          </div>
+          <h1 id="city"></h1>
+          <div class="results">
+            <h2 id="temperature"></h2>
+            <h3>Activities</h3>
+            <div class="options d-flex">
+              <button class="col" id="solo">Solo</button>
+              <button class="col" id="team">Team</button>
+              <button class="col selected" id="all">All</button>
+            </div>
+            <!-- options -->
+            <div class="activities"></div>
+          </div>
+          <!-- results -->
+        </div>
+      </nav>
+    </div>
     <script src="start/main.js"></script>
   </body>
 </html>

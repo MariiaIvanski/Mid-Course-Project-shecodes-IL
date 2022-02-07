@@ -43,23 +43,26 @@ return(response.json());
 		});
 	}, false);
 
+  document.querySelectorAll('.options div').forEach(function(el) {
+		el.addEventListener('click', updateActivityList, false);
+	});
 
 
-  function displayTemperature(response) {
-    let temperatureElement = document.querySelector("#temperature");
-    let cityElement = document.querySelector("#city");
-    let placeholder = document.querySelector(`#city-input`);
-    placeholder.value = ``;
-    let celsiusTemperature = response.data.main.temp;
-    let fahrenheitDegrees = (celsiusTemperature * 9) / 5 + 32;
-    temperatureElement.innerHTML =
-      Math.round(celsiusTemperature) +
-      ` °C/ ` +
-      Math.round(fahrenheitDegrees) +
-      ` °F`;
-    cityElement.innerHTML = response.data.name;
-    displayActivities(celsiusTemperature);
-  }
+function updateUISuccess(response) {
+  const celsiusTemperature = response.data.main.temp;
+    const fahrenheitDegrees = (celsiusTemperature * 9) / 5 + 32;
+   state = {
+     condition: response.weather[0].main,
+			icon: "http://openweathermap.org/img/w/" + response.weather[0].icon + ".png",
+			celsiusTemperature: Math.floor(celsiusTemperature),
+			fahrenheitDegrees: Math.floor(fahrenheitDegrees),
+			city: response.data.name
+	};
+
+const into = document.querySelector('.conditions');
+
+
+
 
   function search(city) {
     let weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;

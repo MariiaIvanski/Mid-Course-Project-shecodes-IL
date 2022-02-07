@@ -1,7 +1,7 @@
 "use strict";
 (function () {
   const apiKey = "a2d283df905dedf8786b96ad24673f92";
-  const url = "http://api.openweathermap.org/data/2.5/weather?q=";
+  const url = "https://api.openweathermap.org/data/2.5/weather?q=";
   const activities = {
     teamIn: ["basketball", "hockey", "volleyball"],
     teamOutWarm: [
@@ -32,7 +32,7 @@
     function (e) {
       e.preventDefault();
       const location = document.querySelector(`#location`).value;
-      document.querySelector("#location").value = ``;
+      document.querySelector(`#location`).value = ``;
 
       fetch(url + location + "&appid=" + apiKey)
         .then(function (response) {

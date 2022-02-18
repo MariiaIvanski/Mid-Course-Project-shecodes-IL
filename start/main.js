@@ -1,7 +1,7 @@
 "use strict";
 (function () {
   const apiKey = "a2d283df905dedf8786b96ad24673f92";
-  const url = "https://api.openweathermap.org/data/2.5/weather?q=";
+
   const activities = {
     teamIn: ["basketball", "hockey", "volleyball"],
     teamOutWarm: [
@@ -31,10 +31,12 @@
     "click",
     function (e) {
       e.preventDefault();
-      const location = document.querySelector(`#location`).value;
+
+      const city = document.querySelector(`#location`).value;
+      const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
       document.querySelector(`#location`).value = ``;
 
-      fetch(url + location + "&appid=" + apiKey)
+      fetch(url)
         .then(function (response) {
           return response.json();
         })

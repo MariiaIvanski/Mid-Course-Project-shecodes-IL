@@ -27,28 +27,30 @@
   let state = {};
   let category = "all";
 
-  function search(e) {
-    e.preventDefault();
-
-    const city = document.querySelector(`#location`).value.trim();
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-    document.querySelector(`#location`).value = ``;
-
-    axios.get(url).then.
-      updateUISuccess(response);
-      console.log(`${city}`);
-    };
-    //     .catch(function () {
-    //      updateUIFailure();
-    //   });
+  function handleSubmit(event) {
+    event.preventDefault();
+    let city = document.querySelector(`#location`).value;
+    city = city.trim();
+    search(city);
   }
-  //   false);
 
+  function search(city) {
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    axios.get(url).then(displayWeather());
+    console.log({ city });
+  }
+  //     .catch(function () {
+  //      updateUIFailure();
+  //   });
+
+  //   false);
+  /*
   document.querySelectorAll(".options div").forEach(function (el) {
     el.addEventListener("click", updateActivityList, false);
   });
-
-  function updateUISuccess(response) {
+*/
+  function displayWeather(response) {
+    console.log("test2");
     const celsiusTemperature = response.data.main.temp;
     const fahrenheitDegrees = (celsiusTemperature * 9) / 5 + 32;
     state = {
@@ -66,7 +68,7 @@
     cityParagr.setAttribute("class", "city");
     cityParagr.textContent = state.city;
     let conditionsPara = document.createElement("p");
-    conditionsPara.textContext = `${state.celsiusTemperature}\u00B0 C / ${state.degFInt}\u00B0 F`;
+    conditionsPara.textContext = `${state.celsiusTemperature}\u00B0 C / ${state.fahrenheitDegrees}\u00B0 F`;
     let iconImage = document.createElement("img");
     iconImage.setAttribute("src", state.icon);
     iconImage.setAttribute("alt", state.condition);
@@ -80,9 +82,9 @@
       into.appendChild(container);
     }
 
-    updateActivityList();
+    // updateActivityList();
   }
-
+  /*
   function updateActivityList(event) {
     if (event !== undefined && event.target.classList.contains("selected")) {
       return true;
@@ -145,7 +147,8 @@
     document.querySelector(".conditions").textContent =
       "Weather information unavailable";
   }
+*/
 
   let form = document.querySelector(`#search-city`);
-  form.addEventListener("submit", search);
+  form.addEventListener("submit", handleSubmit);
 })();

@@ -35,8 +35,8 @@
   }
 
   function search(city) {
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-    axios.get(url).then(displayWeather());
+    let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    axios.get(url).then(displayWeather);
     console.log({ city });
   }
   //     .catch(function () {
@@ -51,12 +51,15 @@
 */
   function displayWeather(response) {
     console.log("test2");
+
     const celsiusTemperature = response.data.main.temp;
     const fahrenheitDegrees = (celsiusTemperature * 9) / 5 + 32;
     state = {
-      condition: response.weather[0].main,
+      condition: response.data.weather[0].main,
       icon:
-        "http://openweathermap.org/img/w/" + response.weather[0].icon + ".png",
+        "http://openweathermap.org/img/w/" +
+        response.data.weather[0].icon +
+        ".png",
       celsiusTemperature: Math.floor(celsiusTemperature),
       fahrenheitDegrees: Math.floor(fahrenheitDegrees),
       city: response.data.name,

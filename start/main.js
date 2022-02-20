@@ -52,16 +52,16 @@
   function displayWeather(response) {
     console.log("test2");
 
-    const celsiusTemperature = response.data.main.temp;
-    const fahrenheitDegrees = (celsiusTemperature * 9) / 5 + 32;
+    let celsiusTemperature = Math.round(response.data.main.temp);
+    let fahrenheitDegrees = Math.round((celsiusTemperature * 9) / 5 + 32);
     state = {
       condition: response.data.weather[0].main,
       icon:
         "http://openweathermap.org/img/w/" +
         response.data.weather[0].icon +
         ".png",
-      celsiusTemperature: Math.floor(celsiusTemperature),
-      fahrenheitDegrees: Math.floor(fahrenheitDegrees),
+      celsiusTemperature: celsiusTemperature,
+      fahrenheitDegrees: fahrenheitDegrees,
       city: response.data.name,
     };
 

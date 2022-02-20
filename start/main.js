@@ -36,7 +36,8 @@
       const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
       document.querySelector(`#location`).value = ``;
 
-      fetch(url)
+      axios
+        .get(url)
         .then(function (response) {
           return response.json();
         })

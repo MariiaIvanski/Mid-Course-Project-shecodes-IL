@@ -27,29 +27,22 @@
   let state = {};
   let category = "all";
 
-  document.querySelector(`.forecast-button`).addEventListener(
-    "click",
-    function (e) {
-      e.preventDefault();
+  function search(e) {
+    e.preventDefault();
 
-      const city = document.querySelector(`#location`).value;
-      const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-      document.querySelector(`#location`).value = ``;
+    const city = document.querySelector(`#location`).value.trim();
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    document.querySelector(`#location`).value = ``;
 
-      axios
-        .get(url)
-        .then(function (response) {
-          return response.json();
-        })
-        .then(function (response) {
-          updateUISuccess(response);
-        })
-        .catch(function () {
-          updateUIFailure();
-        });
-    },
-    false
-  );
+    axios.get(url).then.
+      updateUISuccess(response);
+      console.log(`${city}`);
+    };
+    //     .catch(function () {
+    //      updateUIFailure();
+    //   });
+  }
+  //   false);
 
   document.querySelectorAll(".options div").forEach(function (el) {
     el.addEventListener("click", updateActivityList, false);
@@ -152,4 +145,7 @@
     document.querySelector(".conditions").textContent =
       "Weather information unavailable";
   }
+
+  let form = document.querySelector(`#search-city`);
+  form.addEventListener("submit", search);
 })();

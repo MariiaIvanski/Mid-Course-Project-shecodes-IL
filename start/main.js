@@ -37,7 +37,6 @@
   function search(city) {
     let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
     axios.get(url).then(displayWeather).catch(updateUIFailure);
-    console.log({ city });
     document.querySelector(`#location`).value = "";
   }
 
@@ -82,17 +81,14 @@
     } else {
       into.appendChild(container);
     }
-    console.log("test3");
     updateActivityList();
   }
 
   function updateActivityList(event) {
-    console.log("test4");
     if (event !== undefined) {
       category = event.target.id;
       document.querySelectorAll(".option").forEach(function (el) {
         el.classList.remove("selected");
-        console.log("test6");
       });
 
       event.target.classList.add("selected");

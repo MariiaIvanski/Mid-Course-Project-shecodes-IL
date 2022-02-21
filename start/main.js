@@ -39,16 +39,18 @@
     axios.get(url).then(displayWeather);
     console.log({ city });
   }
-  //     .catch(function () {
-  //      updateUIFailure();
-  //   });
 
-  //   false);
-  /*
-  document.querySelectorAll(".options div").forEach(function (el) {
-    el.addEventListener("click", updateActivityList, false);
-  });
-*/
+  let types = document.querySelector(".options");
+  types.addEventListener(
+    "click",
+    function (ev) {
+      if (ev.target.tagName === "BUTTON") {
+        updateActivityList(ev);
+      }
+    },
+    false
+  );
+
   function displayWeather(response) {
     let celsiusTemperature = response.data.main.temp;
     celsiusTemperature = Math.round(celsiusTemperature);
@@ -72,7 +74,6 @@
     cityParagr.textContent = state.city;
     let conditionsPara = document.createElement("p");
     conditionsPara.innerHTML = `${state.celsiusTemperature}\u00B0 C / ${state.fahrenheitDegrees}\u00B0 F`;
-    console.log(`${conditionsPara.textContext}`);
 
     let iconImage = document.createElement("img");
     iconImage.setAttribute("src", state.icon);
@@ -87,11 +88,12 @@
     } else {
       into.appendChild(container);
     }
-
-    // updateActivityList();
+    console.log("test3");
+    updateActivityList();
   }
-  /*
+
   function updateActivityList(event) {
+    console.log("test5");
     if (event !== undefined && event.target.classList.contains("selected")) {
       return true;
     } else if (
@@ -102,6 +104,7 @@
 
       document.querySelectorAll(".options div").forEach(function (el) {
         el.classList.remove("selected");
+        console.log("test6");
       });
       event.target.classList.add("selected");
     }
@@ -149,11 +152,10 @@
     document.querySelector(".results").classList.add("open");
   }
 
-  function updateUIFailure() {
-    document.querySelector(".conditions").textContent =
-      "Weather information unavailable";
-  }
-*/
+  //function updateUIFailure() {
+  // document.querySelector(".conditions").textContent =
+  //    "Weather information unavailable";
+  // }
 
   let form = document.querySelector(`#search-city`);
   form.addEventListener("submit", handleSubmit);

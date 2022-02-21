@@ -84,3 +84,7 @@ button {
 button:hover {
   background-color: #bfc22a;
 }
+
+.selected {
+  background-color: #c0c22a9e;
+}

@@ -38,18 +38,11 @@
     let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
     axios.get(url).then(displayWeather);
     console.log({ city });
+    document.querySelector(`#location`).value = "";
   }
 
   let types = document.querySelector(".options");
-  types.addEventListener(
-    "click",
-    function (ev) {
-      if (ev.target.tagName === "BUTTON") {
-        updateActivityList(ev);
-      }
-    },
-    false
-  );
+  types.addEventListener("click", updateActivityList, false);
 
   function displayWeather(response) {
     let celsiusTemperature = response.data.main.temp;
@@ -93,21 +86,32 @@
   }
 
   function updateActivityList(event) {
-    console.log("test5");
-    if (event !== undefined && event.target.classList.contains("selected")) {
+    console.log("test4");
+    if (event !== undefined) {
+      console.log("test5");
+      console.log(event.target.id);
+      /*&& event.target.classList.contains("selected")) {
       return true;
     } else if (
       event !== undefined &&
       !event.target.classList.contains("selected")
-    ) {
+    ) {*/
       category = event.target.id;
 
-      document.querySelectorAll(".options div").forEach(function (el) {
+      document.querySelectorAll(".option").forEach(function (el) {
         el.classList.remove("selected");
         console.log("test6");
       });
+
       event.target.classList.add("selected");
     }
+
+    /* let options = document.querySelector(".options button");
+      for (let i = 0; i < options.length; i++) {
+        options[i].classList.remove("selected");
+      } */
+
+    //}}
 
     state.activities = [];
     if (state.condition === "Rain") {

@@ -36,7 +36,7 @@
 
   function search(city) {
     let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-    axios.get(url).then(displayWeather);
+    axios.get(url).then(displayWeather).catch(updateUIFailure);
     console.log({ city });
     document.querySelector(`#location`).value = "";
   }
@@ -45,6 +45,7 @@
   types.addEventListener("click", updateActivityList, false);
 
   function displayWeather(response) {
+    document.querySelector(".conditions").textContent = "";
     let celsiusTemperature = response.data.main.temp;
     celsiusTemperature = Math.round(celsiusTemperature);
 
@@ -88,16 +89,7 @@
   function updateActivityList(event) {
     console.log("test4");
     if (event !== undefined) {
-      console.log("test5");
-      console.log(event.target.id);
-      /*&& event.target.classList.contains("selected")) {
-      return true;
-    } else if (
-      event !== undefined &&
-      !event.target.classList.contains("selected")
-    ) {*/
       category = event.target.id;
-
       document.querySelectorAll(".option").forEach(function (el) {
         el.classList.remove("selected");
         console.log("test6");
@@ -105,13 +97,6 @@
 
       event.target.classList.add("selected");
     }
-
-    /* let options = document.querySelector(".options button");
-      for (let i = 0; i < options.length; i++) {
-        options[i].classList.remove("selected");
-      } */
-
-    //}}
 
     state.activities = [];
     if (state.condition === "Rain") {
@@ -156,10 +141,10 @@
     document.querySelector(".results").classList.add("open");
   }
 
-  //function updateUIFailure() {
-  // document.querySelector(".conditions").textContent =
-  //    "Weather information unavailable";
-  // }
+  function updateUIFailure() {
+    document.querySelector(".conditions").textContent =
+      "Weather information unavailable, try again";
+  }
 
   let form = document.querySelector(`#search-city`);
   form.addEventListener("submit", handleSubmit);

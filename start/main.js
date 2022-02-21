@@ -50,9 +50,9 @@
   });
 */
   function displayWeather(response) {
-    console.log("test2");
+    let celsiusTemperature = response.data.main.temp;
+    celsiusTemperature = Math.round(celsiusTemperature);
 
-    let celsiusTemperature = Math.round(response.data.main.temp);
     let fahrenheitDegrees = Math.round((celsiusTemperature * 9) / 5 + 32);
     state = {
       condition: response.data.weather[0].main,
@@ -71,10 +71,13 @@
     cityParagr.setAttribute("class", "city");
     cityParagr.textContent = state.city;
     let conditionsPara = document.createElement("p");
-    conditionsPara.textContext = `${state.celsiusTemperature}\u00B0 C / ${state.fahrenheitDegrees}\u00B0 F`;
+    conditionsPara.innerHTML = `${state.celsiusTemperature}\u00B0 C / ${state.fahrenheitDegrees}\u00B0 F`;
+    console.log(`${conditionsPara.textContext}`);
+
     let iconImage = document.createElement("img");
     iconImage.setAttribute("src", state.icon);
     iconImage.setAttribute("alt", state.condition);
+
     conditionsPara.appendChild(iconImage);
     container.appendChild(cityParagr);
     container.appendChild(conditionsPara);

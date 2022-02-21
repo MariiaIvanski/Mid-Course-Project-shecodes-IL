@@ -44,6 +44,7 @@ nav a {
 
 nav a:hover {
   color: rgba(255, 255, 255, 0.5);
+  transition: all 100ms ease-in-out;
 }
 
 nav .hidden {
@@ -75,14 +76,15 @@ div .search-engine {
   padding: 5px;
 }
 
-button {
+.option {
   background: rgba(255, 255, 255, 0.8);
   border-color: rgba(255, 255, 255, 0.3);
   padding: 5px;
 }
 
-button:hover {
+.option:hover {
   background-color: #bfc22a;
+  transition: all 100ms ease-in-out;
 }
 
 .selected {

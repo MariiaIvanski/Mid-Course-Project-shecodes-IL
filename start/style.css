@@ -15,7 +15,6 @@ h1 {
 #main-logo {
   width: 200px;
   height: 200px;
-
   padding: 0;
 }
 
@@ -62,9 +61,10 @@ nav .results #temperature {
   justify-content: center;
 }
 
-.search-engine {
+div .search-engine {
   background: rgba(255, 255, 255, 0.5);
   padding: 0;
+  max-width: 400px;
 }
 
 .search-engine h3 {
@@ -87,4 +87,31 @@ button:hover {
 
 .selected {
   background-color: #c0c22a9e;
+}
+
+.form-container {
+  text-align: center;
+  padding: 0 20px;
+}
+.form-container input {
+  margin-top: 2px;
+}
+
+#search-city {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.hidden {
+  display: none;
+}
+
+.city {
+  margin: 16px;
+  font-size: 36px;
+}
+
+.activities li {
+  font-size: 18px;
+  margin: 8px;
 }
